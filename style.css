@@ -64,7 +64,7 @@ input {
 input ::placeholder {
   color: #bdc3c7;
 }
-.button {
+button {
   width: 100%;
   padding: 12px;
   background-color: #3498db;
