@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navBar h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.navBar a {
+  color: #c8e6c9;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+.navBar a:hover {
+  color: #c8e6c9;
+}
+
+.navBar input {
+  padding: 5px 10px;
+  border: 1px solid #a5d6a7;
+  border-radius: 15px;
+  font-size: 16px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.navBar input:focus {
+  outline: 2px solid #66bb6a;
+  background-color: white;
+}
