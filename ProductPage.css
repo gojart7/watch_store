@@ -12,6 +12,7 @@ body {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background-color: #4caf50;
@@ -116,4 +117,17 @@ p {
 
 .items:hover .buy:hover {
   background-color: #81c784;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    padding: 10px;
+  }
 }
