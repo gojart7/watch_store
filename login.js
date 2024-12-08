@@ -25,7 +25,7 @@ function validateForm() {
   }
 
   if (isValid) {
-    window.location.href = "HomePAge.html";
+    window.location.href = "index.html";
   }
   return isValid;
 }
