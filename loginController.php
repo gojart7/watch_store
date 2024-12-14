@@ -9,20 +9,22 @@ if(isset(($_POST['loginBtn']))){
     if(empty($email) || empty($password)) {
         echo "Fill all required fields!";
     }else{
-     
-        $_SESSION['email'] = $email;
-        $_SESSION['password'] = $password;
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+  
   
         $userRepository = new UserRepository;
-        $user = $userRepository->getUserByEmail(email: $email, password: $password);
+        $user = $userRepository->getUserByEmail($email,$password);
     
         if(empty($user)){
           echo "email or Password is Incorrect!";
-          exit();
-        }
-        else{
+          
+        }else{
+            
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
           header("location:index.php"); 
-          exit();
+         exit();
         }
 }
 }
