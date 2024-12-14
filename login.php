@@ -1,3 +1,7 @@
+<?php 
+include_once 'loginController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,13 +11,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <form action="<?= $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validateForm()">
     <div class="signUp">
       <h1 class="signUp-h">Log In</h1>
       <h3>Welcome Back</h3>
       <!-- <p>Become a member a save big!</p> -->
       <div class="input-container">
         <img src="assets/images/emailicon.png" alt="" />
-        <input type="email" id="email" placeholder="Enter your email" />
+        <input type="email" id="email" name="email" placeholder="Enter your email" />
         <span id="emailError" class="error-message"></span>
       </div>
       <div class="input-container">
@@ -21,15 +26,18 @@
         <input
           type="password"
           id="password"
+          name="password"
           placeholder="Enter your password"
         />
         <span id="passwordError" class="error-message"></span>
       </div>
       <div class="button">
-        <button onclick="validateForm()">Login</button>
+      <input class="loginButton" type="submit" value="Login" name="loginBtn">
+        <!-- <button onclick="validateForm()">Login</button> -->
       </div>
       <p>Don't have a account <a href="signUp.html">Register now</a></p>
     </div>
+  </form>
     <script src="login.js"></script>
   </body>
 </html>
