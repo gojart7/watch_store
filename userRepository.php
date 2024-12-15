@@ -41,10 +41,24 @@ class UserRepository {
 
     }
 
-    function getUserByEmail($email,$password){
+    function getUserByEmailandPass($email,$password){
         $conn = $this->connection->startConnection();
 
         $sql = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+
+        if($statement = $conn->query($sql)){
+            $result = $statement->fetch_row();
+            echo "query is executed succesfuly";
+            return $result;
+        }else{
+            return null;
+        }
+    }
+
+    function getUserByEmail($email){
+        $conn = $this->connection->startConnection();
+
+        $sql = "SELECT * FROM users WHERE email = '$email'";
 
         if($statement = $conn->query($sql)){
             $result = $statement->fetch_row();

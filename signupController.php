@@ -17,7 +17,12 @@ if(isset($_POST['signupBtn'])){
         $user = new UserModel($id,$name,$surname,$email,$password);
 
         $userRepository = new UserRepository;
-        $userRepository->insertUser($user);
+        $existUser= $userRepository->getUserByEmail($email);
+        if($existUser){
+            echo "User already exists";
+        }else{
+            $userRepository->insertUser($user);
+        }
     }
 }
 ?>

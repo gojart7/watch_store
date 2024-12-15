@@ -17,7 +17,7 @@ if(isset(($_POST['loginBtn']))){
   
   
         $userRepository = new UserRepository;
-        $user = $userRepository->getUserByEmail($email,$password);
+        $user = $userRepository->getUserByEmailandPass($email,$password);
     
         if(empty($user)){
           echo "email or Password is Incorrect!";
