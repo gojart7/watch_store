@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    // session_start();
     require_once 'auth_check.php';
 ?>
 <!DOCTYPE html>
@@ -17,6 +17,7 @@
     <a href="">Our Brands</a>
     <a href="AboutUs.html">About Us</a>
     <a href="">Contact</a>
+    <a href="logout.php">Logout</a>
   </div>
   <body>
     <div class="intro">

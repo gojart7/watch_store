@@ -29,7 +29,7 @@ class UserRepository {
         echo "<br>";
 
 
-        $sql = "INSERT INTO user (id,Name,surname,email,Password) VALUES 
+        $sql = "INSERT INTO users (id,Name,surname,email,Password) VALUES 
         ('$id','$name','$surname','$email','$password')";
         if(mysqli_query($conn,$sql)){
         echo "query is executed succesfuly";

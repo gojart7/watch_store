@@ -1,5 +1,15 @@
 <?php 
-include_once 'loginController.php';
+// require_once 'auth_check.php';
+if(session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+if (isset($_SESSION['email'])) {
+  header('Location: index.php');
+  exit;
+}
+
+require_once 'loginController.php';   
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +45,7 @@ include_once 'loginController.php';
       <input class="loginButton" type="submit" value="Login" name="loginBtn">
         <!-- <button onclick="validateForm()">Login</button> -->
       </div>
-      <p>Don't have a account <a href="signUp.html">Register now</a></p>
+      <p>Don't have a account <a href="signUp.php">Register now</a></p>
     </div>
   </form>
     <script src="login.js"></script>

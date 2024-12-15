@@ -1,7 +1,10 @@
 <?php 
 include_once 'userRepository.php';
 
-session_start();
+if(session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
 if(isset(($_POST['loginBtn']))){
     $email = isset($_POST['email']) ? $_POST['email'] : ''; 
     $password = isset($_POST['password']) ? $_POST['password'] : ''; 
@@ -22,9 +25,8 @@ if(isset(($_POST['loginBtn']))){
         }else{
             
         $_SESSION['email'] = $email;
-        $_SESSION['password'] = $password;
-          header("location:index.php"); 
-         exit();
+          header("Location:index.php"); 
+         exit;
         }
 }
 }
