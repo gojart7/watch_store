@@ -8,7 +8,7 @@ include_once 'loginController.php';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Watch Store</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <form action="<?= $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validateForm()">
@@ -18,7 +18,7 @@ include_once 'loginController.php';
       <!-- <p>Become a member a save big!</p> -->
       <div class="input-container">
         <img src="assets/images/emailicon.png" alt="" />
-        <input type="email" id="email" name="email" placeholder="Enter your email" />
+        <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="" />
         <span id="emailError" class="error-message"></span>
       </div>
       <div class="input-container">
