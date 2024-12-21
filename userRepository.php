@@ -20,19 +20,12 @@ class UserRepository {
         $surname = $user->getsurname();
         $email= $user->getemail();
         $password = $user->getPassword();
-        echo "<br>";
-        echo " ID: $id";
-        echo " name: $name";
-        echo " surname: $surname";
-        echo " email: $email";
-        echo " password: $password";
-        echo "<br>";
 
 
         $sql = "INSERT INTO users (id,Name,surname,email,Password) VALUES 
         ('$id','$name','$surname','$email','$password')";
         if(mysqli_query($conn,$sql)){
-        echo "query is executed succesfuly";
+        // echo "query is executed succesfuly";
             header("location:login.php");
         }else{
             echo "This is an Error: ".mysqli_error($conn);
@@ -48,7 +41,7 @@ class UserRepository {
 
         if($statement = $conn->query($sql)){
             $result = $statement->fetch_row();
-            echo "query is executed succesfuly";
+            // echo "query is executed succesfuly";
             return $result;
         }else{
             return null;
@@ -62,7 +55,7 @@ class UserRepository {
 
         if($statement = $conn->query($sql)){
             $result = $statement->fetch_row();
-            echo "query is executed succesfuly";
+            // echo "query is executed succesfuly";
             return $result;
         }else{
             return null;
