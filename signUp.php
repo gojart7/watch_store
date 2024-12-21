@@ -1,5 +1,10 @@
 <?php 
-include_once 'signupController.php';
+require_once 'signupController.php';
+
+$signupController = new SignUpController();
+$signupController->handleSingUp();
+$errmessage = $signupController->getErrorMessage();
+$smessage = $signupController->getSuccedMessage();
 ?>
 
 <!DOCTYPE html>
@@ -15,19 +20,24 @@ include_once 'signupController.php';
       <h1 class="signUp-h">Sign Up</h1>
       <h3>Create Your Account</h3>
       <p>Become a member a save big!</p>
-      <form action="<?= $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validateForm()">
-
-      <div class="input-container">
-        <img src="assets/images/userIcon.png" alt="" />
-        <input type="text" placeholder="Enter your name" name="name" value="<?=$name?>" />
+      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" onsubmit="return validateForm()">
+      <div style="color: red;">
+        <?= htmlspecialchars($errmessage ?? ''); ?>
+      </div>
+      <div style="color: green;">
+        <?= htmlspecialchars($smessage ?? ''); ?>
       </div>
       <div class="input-container">
         <img src="assets/images/userIcon.png" alt="" />
-        <input type="text" placeholder="Enter your surname" name="surname" value="<?=$surname?>" />
+        <input type="text" placeholder="Enter your name" name="name"  />
+      </div>
+      <div class="input-container">
+        <img src="assets/images/userIcon.png" alt="" />
+        <input type="text" placeholder="Enter your surname" name="surname"  />
       </div>
       <div class="input-container">
         <img src="assets/images/emailicon.png" alt="" />
-        <input type="email" id="email" placeholder="Enter your email"  name="email" value="<?=$email?>" />
+        <input type="email" id="email" placeholder="Enter your email"  name="email"  />
         <span id="emailError" class="error-message"></span>
       </div>
       <div class="input-container">
@@ -36,7 +46,7 @@ include_once 'signupController.php';
           type="password"
           id="password"
           placeholder="Enter your password"
-          name="password" value="<?=$password?>"
+          name="password"
         />
         <span id="passwordError" class="error-message"></span>
       </div>
