@@ -26,7 +26,6 @@ class UserRepository {
         ('$id','$name','$surname','$email','$password')";
         if(mysqli_query($conn,$sql)){
         // echo "query is executed succesfuly";
-            header("location:login.php");
         }else{
             echo "This is an Error: ".mysqli_error($conn);
         }
