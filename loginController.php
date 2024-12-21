@@ -1,33 +1,39 @@
 <?php 
-include_once 'userRepository.php';
+require_once 'userRepository.php';
 
-if(session_status() === PHP_SESSION_NONE) {
-  session_start();
-}
+class LoginController{
+  private $errorMessage;
 
-if(isset(($_POST['loginBtn']))){
-    $email = isset($_POST['email']) ? $_POST['email'] : ''; 
-    $password = isset($_POST['password']) ? $_POST['password'] : ''; 
-    
-    if(empty($email) || empty($password)) {
-        echo "Fill all required fields!";
-    }else{
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-  
-  
-        $userRepository = new UserRepository;
-        $user = $userRepository->getUserByEmailandPass($email,$password);
-    
-        if(empty($user)){
-          echo "email or Password is Incorrect!";
-          
-        }else{
-            
-        $_SESSION['email'] = $email;
-          header("Location:index.php"); 
-         exit;
-        }
-}
+  public function __construct(){
+    $this->errorMessage="";
+  }
+
+  public function handleLogin(){
+    if(isset($_POST['loginBtn'])){
+      $email = $_POST['email'] ?? '';
+      $password = $_POST['password'] ?? '';
+
+      if(empty(($email) || empty(($password)))){
+        $this->errorMessage = "Fill all required fields!";
+        return;
+      }
+
+      $userRepo = new UserRepository();
+      $user = $userRepo->getUserByEmailandPass($email,$password);
+
+      if(empty($user)){
+        $this->errorMessage = "Email or Password is incorrect!";
+      }else {
+        session_start();
+        $_SESSION['email']=$email;
+        header("Location: index.php");
+        exit;
+      }
+    }
+  }
+
+  public function getErrorMessage(){
+    return $this->errorMessage;
+  }
 }
 ?>
