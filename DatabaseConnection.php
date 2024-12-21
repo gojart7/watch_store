@@ -13,7 +13,7 @@ class DatabaseConnection{
             //echo "Connection failed";
              return null;
         }else{
-           echo "Connection successfully";
+        //    echo "Connection successfully";
             return $conn;
         }
     }
