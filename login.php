@@ -9,7 +9,11 @@ if (isset($_SESSION['email'])) {
   exit;
 }
 
-require_once 'loginController.php';   
+require_once 'loginController.php';  
+
+$loginController = new LoginController();
+$loginController->handleLogin();
+$errmessage = $loginController->getErrorMessage();
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +25,12 @@ require_once 'loginController.php';
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <form action="<?= $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validateForm()">
+    <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" onsubmit="return validateForm()">
     <div class="signUp">
       <h1 class="signUp-h">Log In</h1>
+      <div style="color: red;">
+        <?= htmlspecialchars($errmessage ?? ''); ?>
+      </div>
       <h3>Welcome Back</h3>
       <!-- <p>Become a member a save big!</p> -->
       <div class="input-container">
