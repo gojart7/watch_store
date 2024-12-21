@@ -19,13 +19,10 @@ function validateForm() {
     isValid = false;
   }
 
-  if (password.length < 8) {
-    passwordError.textContent = "Password must be at least 8 characters long.";
-    isValid = false0;
+  if (password.length < 6) {
+    passwordError.textContent = "Password must be at least 6 characters long.";
+    isValid = false;
   }
 
-  if (isValid) {
-    window.location.href = "index.html";
-  }
   return isValid;
 }
