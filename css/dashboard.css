@@ -56,3 +56,15 @@
   font-size: 1.1em;
   color: #555;
 }
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .nav-links {
+    padding: 10px;
+  }
+}

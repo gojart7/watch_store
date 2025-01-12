@@ -14,7 +14,7 @@
     <h1>Watch Store</h1>
     <!-- <a href="">Home</a> -->
     <a href="ProductPage.html">Product</a>
-    <a href="">Our Brands</a>
+    <a href="UserBrands.php">Our Brands</a>
     <a href="AboutUs.html">About Us</a>
     <a href="">Contact</a>
     <a href="logout.php">Logout</a>
