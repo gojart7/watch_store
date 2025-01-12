@@ -37,6 +37,17 @@ class BrandRepository{
     return $stmt->execute();
     }
 
+    public function countAllBrands(){
+        $query = "SELECT COUNT(*) AS total_brands FROM " . $this->table;
+        $result = $this->connection->query($query);
+
+        if($result){
+            $row = $result->fetch_assoc();
+            return $row['total_brands'];
+        }
+        return 0;
+    }
+
 }
 
 ?>

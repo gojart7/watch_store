@@ -26,13 +26,17 @@ class BrandController{
     }
 
     public function deleteBrand($id) {
-        //later before delete check if is used 
         $repo = new BrandRepository();
         if ($repo->deleteBrand($id)) {
             $this->succedMessage = "Brand deleted successfully!";
         } else {
             $this->errorMessage = "Failed to delete brand.";
         }
+    }
+
+    public function countAllBrands(){
+        $repo = new BrandRepository();
+        return $repo->countAllBrands();
     }
 
     public function getErrorMessage(){
