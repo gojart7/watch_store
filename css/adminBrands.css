@@ -3,6 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+.mainTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px 0px 0px;
+}
+
+#addProd {
+  padding: 10px 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 .mainTitle {
   padding: 10px;
 }
@@ -106,6 +121,10 @@ a {
   color: red;
 }
 
+.editLink {
+  color: #47abd3;
+}
+
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
@@ -137,5 +156,9 @@ a {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+  }
+  .mainTitleContainer {
+    display: block;
+    padding-left: 20px;
   }
 }

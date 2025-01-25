@@ -13,7 +13,7 @@ class ProductController{
         $repo = new ProductRepository();
         return $repo->getAllProducts();
     }
-    public function addProduct($name, $description, $price, $image) {
+    public function addProduct($name, $description, $price, $brand_id,$image) {
         $repo = new ProductRepository();
     
         if (empty($name) || empty($description) || empty($price)) {
@@ -39,7 +39,7 @@ class ProductController{
     
             // upload
             if (move_uploaded_file($image['tmp_name'], $uploadPath)) {
-                $repo->addProductToDatabase($name, $description, $price, $uploadPath);
+                $repo->addProductToDatabase($name, $description, $price,$brand_id, $uploadPath);
                 $this->succedMessage = "Product added successfully.";
             } else {
                 $this->errorMessage = "Failed to upload the image.";

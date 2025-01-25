@@ -23,10 +23,10 @@ class ProductRepository{
         return $prods;
     }
 
-    public function addProductToDatabase($name, $description, $price, $imagePath) {
-        $query = "INSERT INTO " . $this->table . " (name, description, price, image) VALUES (?, ?, ?, ?)";
+    public function addProductToDatabase($name, $description, $price, $brand_id, $imagePath) {
+        $query = "INSERT INTO " . $this->table . " (name, description, price,brand_id, image) VALUES (?, ?, ?, ? ,?)";
         $stmt = $this->connection->prepare($query);
-        $stmt->bind_param("ssds", $name, $description, $price, $imagePath);
+        $stmt->bind_param("ssdis", $name, $description, $price,$brand_id, $imagePath);
         $stmt->execute();
         $stmt->close();
     }
