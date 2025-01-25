@@ -75,6 +75,7 @@ $successMessage = $productController->getSuccedMessage();
                 <th>ID</th>
                 <th>Image</th>
                 <th>Name</th>
+                <th>Brand</th>
                 <th>Description</th>
                 <th>Price</th>
                 <th>Actions</th>
@@ -86,8 +87,9 @@ $successMessage = $productController->getSuccedMessage();
                     <td><?php echo htmlspecialchars($product['id']); ?></td>
                     <td><img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image" style="width: 50px; height: 50px; border-radius: 5px;"></td>
                     <td><?php echo htmlspecialchars($product['name']); ?></td>
+                    <td><?php echo htmlspecialchars($product['brand_name']); ?></td>
                     <td><?php echo htmlspecialchars($product['description']); ?></td>
-                    <td>$<?php echo htmlspecialchars($product['price']); ?></td>
+                    <td>€<?php echo htmlspecialchars($product['price']); ?></td>
                     <td>
                         <a href="AdminProduct.php?delete=<?php echo $product['id']; ?>" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
                         <a href="EditProduct.php?id=<?php echo $product['id']; ?>">Edit</a>
