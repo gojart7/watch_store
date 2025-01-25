@@ -27,6 +27,14 @@ class BrandController{
 
     public function deleteBrand($id) {
         $repo = new BrandRepository();
+        $isUsed = $repo->checkIfBrandIsUsed($id);
+
+        if ($isUsed) {
+            $this->errorMessage = "The brand is used by one or more products.";
+            error_log($this->errorMessage);
+            return;
+        }
+      
         if ($repo->deleteBrand($id)) {
             $this->succedMessage = "Brand deleted successfully!";
         } else {
