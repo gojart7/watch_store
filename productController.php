@@ -4,10 +4,12 @@ include_once 'productRepository.php';
 class ProductController{
     private $errorMessage;
     private $succedMessage;
+    private $uploadDir;
 
     public function __construct(){
         $this->errorMessage="";
         $this->succedMessage="";
+        $this->uploadDir="C:/laragon/www/uploads/";
     }
     public function getAllProds()  {
         $repo = new ProductRepository();
@@ -28,13 +30,12 @@ class ProductController{
         
         // upload img
         if ($image && $image['error'] === UPLOAD_ERR_OK) {
-            $uploadDir = 'assets/storage/';
             $fileName = basename($image['name']);
-            $uploadPath = $uploadDir . $fileName;
+            $uploadPath = $this->uploadDir . $fileName;
     
             // if dir not exists create
-            if (!file_exists($uploadDir)) {
-                mkdir($uploadDir, 0777, true);
+            if (!file_exists($this->uploadDir)) {
+                mkdir($this->uploadDir, 0777, true);
             }
     
             // upload
@@ -89,13 +90,12 @@ class ProductController{
     
         // new img
         if ($newImage && $newImage['error'] === UPLOAD_ERR_OK) {
-            $uploadDir = 'assets/storage/';
-            $fileName = basename($newImage['name']);
-            $uploadPath = $uploadDir . $fileName;
+             $fileName = basename($newImage['name']);
+            $uploadPath = $this->uploadDir . $fileName;
     
             // create dir
-            if (!file_exists($uploadDir)) {
-                mkdir($uploadDir, 0777, true);
+            if (!file_exists($this->uploadDir)) {
+                mkdir($this->uploadDir, 0777, true);
             }
     
             //delete old img

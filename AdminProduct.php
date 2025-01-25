@@ -71,7 +71,7 @@ $successMessage = $productController->getSuccedMessage();
             <?php foreach ($products as $product): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($product['id']); ?></td>
-                    <td><img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image" style="width: 50px; height: 50px; border-radius: 5px;"></td>
+                    <td><img src="<?php echo str_replace('C:/laragon/www/', '/', htmlspecialchars($product['image'])); ?>" " alt="Product Image" style="width: 50px; height: 50px; border-radius: 5px;"></td>
                     <td><?php echo htmlspecialchars($product['name']); ?></td>
                     <td><?php echo htmlspecialchars($product['brand_name']); ?></td>
                     <td><?php echo htmlspecialchars($product['description']); ?></td>
