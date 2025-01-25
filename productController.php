@@ -121,6 +121,11 @@ class ProductController{
             $this->errorMessage = "Failed to update the product.";
         }
     }
+
+    public function countAllProds(){
+        $repo = new ProductRepository();
+        return $repo->countAllProds();
+    }
     
     public function getErrorMessage(){
         return $this->errorMessage;

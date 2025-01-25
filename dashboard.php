@@ -1,5 +1,9 @@
 <?php 
 include_once 'brandController.php';
+include_once 'productController.php';
+include_once 'userRepository.php';
+include_once 'adminRepository.php';
+
 if(session_status() === PHP_SESSION_NONE) {
     session_start();
   }
@@ -10,7 +14,14 @@ if(session_status() === PHP_SESSION_NONE) {
   }
 
   $brandController = new BrandController();
+  $productController = new ProductController();
+  $userRepo = new UserRepository();
+  $adminRepo = new AdminRepository();
+  
   $totalBrands = $brandController->countAllBrands();
+  $totalProds = $productController->countAllProds();
+  $totalUsers = $userRepo->countAllusers();
+  $totalAdmins = $adminRepo->countAlladmins();
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +47,20 @@ if(session_status() === PHP_SESSION_NONE) {
 
     <div class="card">
       <h2>Users</h2>
-      <p>Total users: <strong>1,234</strong></p>
+      <p>Total users: <strong><?php echo $totalUsers; ?></strong> registered</p>
     </div>
+
+    <div class="card">
+      <h2>Admins</h2>
+      <p>Total admins: <strong><?php echo $totalAdmins; ?></strong> registered</p>
+    </div>
+
+    <div class="card">
+      <h2>Products</h2>
+      <p>Total products: <strong><?php echo $totalProds; ?></strong> registered</p>
+    </div>
+
+    
   </div>
 <body>
     

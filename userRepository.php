@@ -61,6 +61,17 @@ class UserRepository {
         }
     }
 
+    public function countAllusers(){
+        $conn = $this->connection->startConnection();
+        $query = "SELECT COUNT(*) AS total_users FROM users";
+
+        if($statement = $conn->query($query)){
+            $result = $statement->fetch_assoc();
+            return $result['total_users'];
+        }
+        
+        return 0;
+    }
 }
 
 ?>

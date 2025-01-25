@@ -81,6 +81,15 @@ class ProductRepository{
     
         return $product;
     }
-    
+    public function countAllProds(){
+        $query = "SELECT COUNT(*) AS total_prods FROM " . $this->table;
+        $result = $this->connection->query($query);
+
+        if($result){
+            $row = $result->fetch_assoc();
+            return $row['total_prods'];
+        }
+        return 0;
+    }
 }
 ?>
