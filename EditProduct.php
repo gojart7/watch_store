@@ -1,5 +1,6 @@
 <?php
 include_once 'productController.php';
+include_once 'brandController.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -12,6 +13,7 @@ if (!isset($_SESSION['adminemail'])) {
 
 $productController = new ProductController();
 $product = null;
+$brands = (new BrandRepository())->getAllBrands();
 
 // pod exists?
 if (isset($_GET['id'])) {
@@ -27,9 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
+    $brand_id = $_POST['brand_id'];
     $newImage = $_FILES['image'];
 
-    $productController->editProduct($id, $name, $description, $price, $newImage);
+    $productController->editProduct($id, $name, $description, $price,$brand_id, $newImage);
     $product = (new ProductRepository())->getProductById($id); // Refresh product details
     
     header('Location: AdminProduct.php');
@@ -46,7 +49,7 @@ $successMessage = $productController->getSuccedMessage();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
-    <link rel="stylesheet" href="css/adminBrands.css">
+    <link rel="stylesheet" href="css/addEditProds.css">
 </head>
 <body>
     <div class="nav-links">
@@ -68,15 +71,35 @@ $successMessage = $productController->getSuccedMessage();
 
     <?php if ($product): ?>
         <form method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?php echo htmlspecialchars($product['id']); ?>">
-            <input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>" required>
-            <textarea name="description" required><?php echo htmlspecialchars($product['description']); ?></textarea>
-            <input type="number" step="0.01" name="price" value="<?php echo htmlspecialchars($product['price']); ?>" required>
-            <label>Current Image:</label>
-            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Current Image" style="width: 100px; height: 100px;">
-            <label>Replace Image (Optional):</label>
-            <input type="file" name="image" accept="image/*">
-            <button type="submit" name="update">Update Product</button>
+            <div class="innerFormData">
+                <div>
+                    <label>Current Image:</label>
+                    <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Current Image" style="width: 100px; height: 100px;">
+                    <label>Replace Image (Optional):</label>
+                    <input type="file" name="image" accept="image/*">
+                </div>
+
+                <div>
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($product['id']); ?>">
+                    <label>Product Name:</label>
+                    <input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>" required>
+                    <label>Brand:</label>      
+                    <select name="brand_id" required>
+                        <option value="">Select a Brand</option>
+                        <?php foreach ($brands as $brand): ?>
+                            <option value="<?php echo htmlspecialchars($brand['id']); ?>" 
+                                <?php echo $brand['id'] == $product['brand_id'] ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($brand['name']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <label>Description:</label>
+                    <textarea name="description" required><?php echo htmlspecialchars($product['description']); ?></textarea>
+                    <label>Price in €:</label>
+                    <input type="number" step="0.01" name="price" value="<?php echo htmlspecialchars($product['price']); ?>" required>
+                    <button type="submit" name="update">Update Product</button>
+                </div>
+            </div>
         </form>
     <?php else: ?>
         <p>Product not found.</p>
