@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
 // Handle Delete Brand
 if (isset($_GET['delete'])) {
     $brandController->deleteBrand($_GET['delete']);
-    header('Location: AdminBrand.php');
 }
 
   $brands= $brandController->getAllBrands();
@@ -38,6 +37,7 @@ if (isset($_GET['delete'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brands</title>
     <link rel="stylesheet" href="css/adminBrands.css" />
+    <script defer src="adminBrands.js"></script>
 </head>
 <div class="nav-links">
     <h1>Watch Store</h1>
@@ -46,21 +46,32 @@ if (isset($_GET['delete'])) {
     <a href="adminLogout.php">Logout</a>
   </div>
 <body>
-<h2 class="mainTitle">Manage Brands</h2>
+    
+<div class="mainTitleContainer">
+    <h2 class="mainTitle">Manage Brands</h2>
+    <button id="addProd" onclick="toggleForm()">Add</button>
+</div>
 
     <?php if (!empty($errmessage)): ?>
-        <div class="error-message"><?php echo $errmessage; ?></div>
+        <div class="error-message"><?php echo $errmessage; ?>
+            <a href="AdminBrand.php">Ok</a>
+        </div>
     <?php endif; ?>
 
     <?php if (!empty($smessage)): ?>
-        <div class="success-message"><?php echo $smessage; ?></div>
+        <div class="success-message"><?php echo $smessage; ?>
+            <a class="editLink" href="AdminBrand.php">Ok</a>
+        </div>
+        
     <?php endif; ?>
 
-<form method="POST">
-    <input type="text" name="name" placeholder="Brand Name" required>
-    <textarea name="description" placeholder="Brand Description" required></textarea>
-    <button type="submit" name="add">Add Brand</button>
-</form>
+    <div id="addForm">
+        <form method="POST">
+            <input type="text" name="name" placeholder="Brand Name" required>
+            <textarea name="description" placeholder="Brand Description" required></textarea>
+            <button type="submit" name="add">Add Brand</button>
+        </form>
+    </div>
 
 <table>
     <thead>
