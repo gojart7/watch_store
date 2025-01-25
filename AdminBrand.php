@@ -42,7 +42,7 @@ if (isset($_GET['delete'])) {
 <div class="nav-links">
     <h1>Watch Store</h1>
     <a href="dashboard.php">Dashboard</a>
-    <a href="">Product</a>
+    <a href="AdminProduct.php">Product</a>
     <a href="adminLogout.php">Logout</a>
   </div>
 <body>
