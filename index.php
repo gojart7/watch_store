@@ -13,7 +13,7 @@
   <div class="navBar">
     <h1>Watch Store</h1>
     <!-- <a href="">Home</a> -->
-    <a href="ProductPage.html">Product</a>
+    <a href="ProductPage.php">Product</a>
     <a href="UserBrands.php">Our Brands</a>
     <a href="AboutUs.html">About Us</a>
     <a href="">Contact</a>
@@ -79,9 +79,9 @@
       <div class="home-links">
         <h3>Quick Links</h3>
         <li><a href="">Home</a></li>
-        <li><a href="ProductPage.html">Product</a></li>
-        <li><a href="">Our Brands</a></li>
-        <li><a href="">About Us</a></li>
+        <li><a href="ProductPage.php">Product</a></li>
+        <li><a href="UserBrands.php">Our Brands</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
         <li><a href="">Contact</a></li>
       </div>
     </div>

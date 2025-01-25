@@ -16,7 +16,7 @@ $brands = $brandController->getAllBrands();
 <div class="nav-links">
     <h1>Watch Store</h1>
     <a href="index.php">Home</a>
-    <a href="ProductPage.html">Product</a>
+    <a href="ProductPage.php">Product</a>
     <a href="AboutUs.html">About Us</a>
     <a href="">Contact</a>
 </div>
