@@ -48,6 +48,17 @@ class BrandRepository{
         return 0;
     }
 
+    public function checkIfBrandIsUsed($brand_id){
+        $query = "SELECT * FROM products where brand_id=?";
+        $stmt = $this->connection->prepare($query); 
+        $stmt->bind_param("i", $brand_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $isUsed = $result->num_rows > 0;
+        $stmt->close();
+        return $isUsed;
+    }
 }
 
 ?>
