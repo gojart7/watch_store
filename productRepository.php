@@ -13,7 +13,7 @@ class ProductRepository{
 
     public function getAllProducts() { 
         
-        $query = "SELECT * FROM " . $this->table;
+        $query = "SELECT products.*, brands.name AS brand_name FROM products LEFT JOIN brands ON products.brand_id = brands.id";
         $result  = $this->connection->query($query);
         $prods = [];
 
@@ -57,12 +57,12 @@ class ProductRepository{
     
         return $affectedRows > 0;
     }
-    public function updateProduct($id, $name, $description, $price, $imagePath) {
+    public function updateProduct($id, $name, $description, $price, $brand_id,$imagePath) {
         $query = "UPDATE " . $this->table . " 
-                  SET name = ?, description = ?, price = ?, image = ? 
+                  SET name = ?, description = ?, price = ?,brand_id=? ,image = ? 
                   WHERE id = ?";
         $stmt = $this->connection->prepare($query);
-        $stmt->bind_param("ssdsi", $name, $description, $price, $imagePath, $id);
+        $stmt->bind_param("ssdisi", $name, $description, $price,$brand_id, $imagePath, $id);
         $stmt->execute();
         $affectedRows = $stmt->affected_rows;
         $stmt->close();
