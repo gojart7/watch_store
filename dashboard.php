@@ -23,7 +23,7 @@ if(session_status() === PHP_SESSION_NONE) {
 </head>
 <div class="nav-links">
     <h1>Watch Store</h1>
-    <a href="">Product</a>
+    <a href="AdminProduct.php">Product</a>
     <a href="AdminBrand.php">Brands</a>
     <a href="adminLogout.php">Logout</a>
   </div>
