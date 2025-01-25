@@ -1,6 +1,5 @@
 <?php 
 include_once 'productRepository.php';
-include_once 'productModel.php';
 
 class ProductController{
     private $errorMessage;
@@ -65,7 +64,7 @@ class ProductController{
             $this->errorMessage = "Failed to delete the product.";
         }
     }
-    public function editProduct($id, $name, $description, $price, $newImage = null) {
+    public function editProduct($id, $name, $description, $price, $brand_id, $newImage = null ) {
         $repo = new ProductRepository();
     
         // validity
@@ -114,7 +113,7 @@ class ProductController{
         }
     
         // update
-        $updated = $repo->updateProduct($id, $name, $description, $price, $imagePath);
+        $updated = $repo->updateProduct($id, $name, $description, $price,$brand_id, $imagePath);
     
         if ($updated) {
             $this->succedMessage = "Product updated successfully.";
