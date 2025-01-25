@@ -72,6 +72,19 @@ class UserRepository {
         
         return 0;
     }
+    public function getAllUsers() { 
+        $conn = $this->connection->startConnection(); 
+        $query = "SELECT * FROM users";
+        $result = $conn->query($query); 
+        $users = [];
+    
+        if ($result) { 
+            while ($row = $result->fetch_assoc()) {
+                $users[] = $row; 
+            }
+        } 
+        return $users;
+    }   
 }
 
 ?>

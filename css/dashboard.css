@@ -57,14 +57,46 @@
   color: #555;
 }
 
+table {
+  width: 98%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background-color: #333;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
     text-align: center;
   }
+
+  table {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 @media (max-width: 480px) {
   .nav-links {
     padding: 10px;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }

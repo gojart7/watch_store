@@ -22,6 +22,7 @@ if(session_status() === PHP_SESSION_NONE) {
   $totalProds = $productController->countAllProds();
   $totalUsers = $userRepo->countAllusers();
   $totalAdmins = $adminRepo->countAlladmins();
+  $users = $userRepo->getAllUsers();
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +61,27 @@ if(session_status() === PHP_SESSION_NONE) {
       <p>Total products: <strong><?php echo $totalProds; ?></strong> registered</p>
     </div>
 
+    <table>
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+          </tr>
+      </thead>
+      <tbody>
+          <?php foreach($users as $user): ?>
+             <tr>
+              <td>
+                <?php echo htmlspecialchars($user['id']); ?></td>
+                     <td><?php echo htmlspecialchars($user['name']); ?></td>
+                     <td><?php echo htmlspecialchars($user['surname']); ?></td>
+                     <td><?php echo htmlspecialchars($user['email']); ?></td>
+              </tr>
+         <?php endforeach; ?>
+      </tbody>
+</table>
     
   </div>
 <body>
