@@ -65,6 +65,14 @@
   color: #155724;
 }
 
+#addProd.close-state {
+  background-color: #dc3545;
+}
+
+#addForm {
+  display: none;
+}
+
 form {
   margin-bottom: 20px;
   padding: 20px;
