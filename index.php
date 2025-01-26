@@ -16,7 +16,7 @@
     <a href="ProductPage.php">Product</a>
     <a href="UserBrands.php">Our Brands</a>
     <a href="AboutUs.html">About Us</a>
-    <a href="">Contact</a>
+    <a href="Contact.php">Contact</a>
     <a href="logout.php">Logout</a>
   </div>
   <body>
@@ -82,7 +82,7 @@
         <li><a href="ProductPage.php">Product</a></li>
         <li><a href="UserBrands.php">Our Brands</a></li>
         <li><a href="AboutUs.html">About Us</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="Contact.php">Contact</a></li>
       </div>
     </div>
     <script src="javascript/HomePage.js"></script>

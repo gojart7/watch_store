@@ -18,7 +18,7 @@ $brands = $brandController->getAllBrands();
     <a href="index.php">Home</a>
     <a href="ProductPage.php">Product</a>
     <a href="AboutUs.html">About Us</a>
-    <a href="">Contact</a>
+    <a href="Contact.php">Contact</a>
 </div>
 <div class="container">
      <?php foreach ($brands as $brand): ?>

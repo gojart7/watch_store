@@ -20,7 +20,7 @@
     <a href="index.php">Home</a>
     <a href="UserBrands.php">Our Brands</a>
     <a href="AboutUs.html">About Us</a>
-    <a href="">Contact</a>
+    <a href="Contact.php">Contact</a>
     <a href="logout.php">Logout</a>
   </div>
   <p>Find Your Perfect Timepiece - Elegance and Precision in Every Tick!</p>
