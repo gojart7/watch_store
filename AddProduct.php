@@ -37,7 +37,7 @@ $successMessage = $productController->getSuccedMessage();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
     <link rel="stylesheet" href="css/addEditProds.css">
-    <script defer src="addProduct.js"></script>
+    <script defer src="javascript/addProduct.js"></script>
 </head>
 <body>
     <div class="nav-links">

@@ -37,7 +37,7 @@ if (isset($_GET['delete'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brands</title>
     <link rel="stylesheet" href="css/adminBrands.css" />
-    <script defer src="adminBrands.js"></script>
+    <script defer src="javascript/adminBrands.js"></script>
 </head>
 <div class="nav-links">
     <h1>Watch Store</h1>

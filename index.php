@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
-    <link rel="stylesheet" href="HomePage.css" />
+    <link rel="stylesheet" href="css/HomePage.css" />
   </head>
   <div class="navBar">
     <h1>Watch Store</h1>
@@ -85,6 +85,6 @@
         <li><a href="">Contact</a></li>
       </div>
     </div>
-    <script src="HomePage.js"></script>
+    <script src="javascript/HomePage.js"></script>
   </body>
 </html>

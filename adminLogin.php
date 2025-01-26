@@ -55,6 +55,6 @@ $errmessage = $loginController->getErrorMessage();
       <p>Don't have a account <a href="signUp.php">Register now</a></p>
     </div>
   </form>
-    <script src="login.js"></script>
+    <script src="javascript/login.js"></script>
   </body>
 </html>

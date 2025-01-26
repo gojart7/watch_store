@@ -57,6 +57,6 @@ $smessage = $signupController->getSuccedMessage();
       </form>
       <p>Already have a account <a href="login.php">Login</a></p>
     </div>
-    <script src="login.js"></script>
+    <script src="javascript/login.js"></script>
   </body>
 </html>
