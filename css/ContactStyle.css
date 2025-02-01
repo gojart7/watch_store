@@ -94,3 +94,16 @@ section {
   height: 80px;
   resize: none;
 }
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    padding: 10px;
+  }
+}
