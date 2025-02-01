@@ -52,8 +52,7 @@ $errmessage = $loginController->getErrorMessage();
       <input class="loginButton" type="submit" value="Login" name="loginBtn">
         <!-- <button onclick="validateForm()">Login</button> -->
       </div>
-      <p>Don't have a account <a href="signUp.php">Register now</a></p>
-    </div>
+     </div>
   </form>
     <script src="javascript/login.js"></script>
   </body>
