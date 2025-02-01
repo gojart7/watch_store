@@ -84,7 +84,7 @@ $successMessage = $productController->getSuccedMessage();
                     <textarea name="description" required></textarea>
                     <label>Price in €:</label>
                     <input type="number" step="0.01" name="price" required>
-                    <button type="submit" name="add">Update Product</button>
+                    <button type="submit" name="add">Add Product</button>
                 </div>
             </div>
         </form>
